@@ -17,7 +17,7 @@ Output: true
 
 class Solution:
     def isValid(self, s: str) -> bool:
-        charsDict = {
+        chars_dict = {
             ')': '(',
             '}': '{',
             ']': '['
@@ -26,15 +26,15 @@ class Solution:
 
         for i in range(len(s)):
             if len(stack) == 0:
-                if s[i] in charsDict.values():
+                if s[i] in chars_dict.values():
                     stack.append(s[i])
                 else:
                     return False
             else:
-                if s[i] in charsDict.values():
+                if s[i] in chars_dict.values():
                     stack.append(s[i])
                 else:
-                    if stack[len(stack) - 1] != charsDict[s[i]]:
+                    if stack[len(stack) - 1] != chars_dict[s[i]]:
                         return False
                     else:
                         stack.pop()
